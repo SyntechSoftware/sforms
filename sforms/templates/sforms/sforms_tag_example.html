@@ -1,0 +1,14 @@
+{% load sforms %}
+
+{% sform form2 "/success.html" %}
+
+{% if success %}
+    <h1>Form was sent!</h1>
+{% else %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit"/>
+    </form>
+{% endif %}
+
